@@ -1,0 +1,33 @@
+{
+  "name": "cheat-sheets",
+  "version": "0.0.1",
+  "description": "Command-line cheat sheets and code snippets",
+  "main": "readme.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brennanfee/cheat-sheets.git"
+  },
+  "keywords": [],
+  "author": "Brennan Fee <brennan@github.mailbots.org> (https://github.com/brennanfee)",
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/brennanfee/cheat-sheets/issues"
+  },
+  "homepage": "https://github.com/brennanfee/cheat-sheets#readme",
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  },
+  "prettier": {
+    "printWidth": 88,
+    "trailingComma": "es5",
+    "proseWrap": "always",
+    "semi": false,
+    "singleQuote": true,
+    "requirePragma": false,
+    "insertPragma": false
+  },
+  "scripts": {
+    "format": "npx prettier **/*.md --write"
+  }
+}

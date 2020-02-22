@@ -137,3 +137,4 @@ tags
 # Edit at https://www.gitignore.io/?templates=jetbrains
 
 ###### Custom project specific overrides ######
+node_modules/

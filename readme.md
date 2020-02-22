@@ -1,6 +1,6 @@
 # cheat-sheets
 
-Todo
+Command-line cheat sheets and code snippets.
 
 ## Overview
 
