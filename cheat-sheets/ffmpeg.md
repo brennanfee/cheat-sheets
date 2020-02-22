@@ -42,6 +42,14 @@ for i in **/*.mp4; do
 done
 ```
 
+## Trim without re-encoding
+
+Trim from the front of a file.  The time is in hh:mm:ss format.
+
+```bash
+ffmpeg -i "input-file.mp4" -c copy -ss 1:30 "output-file.mp4"
+```
+
 ## Media Verification
 
 This one will print out any movie (\*.mp4) files that do NOT have an audio track.
