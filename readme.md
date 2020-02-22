@@ -4,11 +4,15 @@ Command-line cheat sheets and code snippets.
 
 ## Overview
 
-TBD
+This repo contains little command-line executions that I may use frequently or even just
+from time-to-time. Unlike traditional cheat sheet like documents these are real world
+examples not contrived samples. As a result, all of these are verified to work and solve
+some real problem or provide some real-world information.
 
 ## The cheat-sheets
 
-TBD
+- [ffmpeg And Media Manipulation](cheat-sheets/ffmpeg.md)
+- [Bulk File Renaming](cheat-sheets/rename.md)
 
 ## License
 
