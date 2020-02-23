@@ -14,6 +14,8 @@ some real problem or provide some real-world information.
 - [ffmpeg And Media Manipulation](cheat-sheets/ffmpeg.md)
 - [Bulk File Renaming](cheat-sheets/rename.md)
 - [Find](cheat-sheets/find.md)
+- [Rsync](cheat-sheets/rsync.md)
+- [Hardware Info](cheat-sheets/inxi.md)
 
 ## License
 
