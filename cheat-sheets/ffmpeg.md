@@ -47,7 +47,24 @@ done
 Trim from the front of a file.  The time is in hh:mm:ss format.
 
 ```bash
-ffmpeg -i "input-file.mp4" -c copy -ss 1:30 "output-file.mp4"
+ffmpeg -i "input-file.mp4" -c copy -ss 1:30 -movflags +faststart "output-file.mp4"
+```
+
+## Concatinate two files without re-encoding
+
+Create a file <name>.txt with all the files you want to have concatenated in the following form (lines starting with a # are ignored): 
+
+```
+# this is a comment
+file '/path/to/file1.mp4'
+file '/path/to/file2.mp4'
+file '/path/to/file3.mp4'
+```
+
+The run this command:
+
+```
+ffmpeg -f concat -safe 0 -i <name>.txt -c copy -movflags +faststart "output-file.mp4"
 ```
 
 ## Media Verification
