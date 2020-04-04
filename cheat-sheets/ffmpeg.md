@@ -30,7 +30,7 @@ installed.
 
 ```bash
 for i in **/*.mp4; do
-  if [[ $(mediainfo "${i}" | grep -i "Movie name") ]]; then
+  if [[ $(mediainfo "${i}" | grep -i "Movie name\|Title") ]]; then
     ffmpeg -i "${i}" -map_metadata -1 -codec copy -movflags +faststart "fixed-${i##*/}"
     if [[ $? == 0 ]]; then
       rm "${i}"
