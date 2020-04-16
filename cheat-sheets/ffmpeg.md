@@ -3,7 +3,7 @@
 ## Convert mkv to mp4 without re-encoding
 
 ```bash
-for i in *.mkv; do
+for i in **/*.mkv; do
     ffmpeg -i "${i}" -map_metadata -1 -acodec copy -vcodec copy -movflags +faststart "${i%.*}.mp4"
     if [[ $? == 0 ]]; then
       rm "${i}"
