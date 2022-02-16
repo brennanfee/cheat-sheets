@@ -60,3 +60,9 @@ Add the production year to an already re-named series/season.
 ```bash
 rename -f 's/^(.*) [Ss](\d\d)[Ee](\d\d) - (.*)\.(.{3})$/$1 (20xx) s$2e$3 - $4\.$5/' Season*/*.{mp4,srt} -n
 ```
+
+For a series without episode titles:
+
+```bash
+rename -f 's/^(.*) [Ss](\d\d)[Ee](\d\d)\.(.{3})$/$1 (2010) s$2e$3\.$4/' Season*/*.{mp4,srt} -n
+```
