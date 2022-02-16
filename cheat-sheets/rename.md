@@ -58,5 +58,5 @@ rename -f 's/(.*) [Ss](\d\d)[Ee](\d\d) (.*) (1080p|720p).*$/$1 s$2e$3 - $4\.mp4/
 Add the production year to an already re-named series/season.
 
 ```bash
-rename -f 's/^(.*) [Ss](\d\d)[Ee](\d\d) - (.*)\.mp4$/$1 (20xx) s$2e$3 - $4\.mp4/' *.mp4 -n
+rename -f 's/^(.*) [Ss](\d\d)[Ee](\d\d) - (.*)\.(.{3})$/$1 (20xx) s$2e$3 - $4\.$5/' {Season*/*.mp4,Season*/*.srt} -n
 ```
