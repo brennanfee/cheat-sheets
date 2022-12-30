@@ -4,7 +4,7 @@
 
 ```bash
 for i in **/*.mkv; do
-    ffmpeg -i "${i}" -map_metadata -1 -acodec copy -vcodec copy -movflags +faststart "${i%.*}.mp4"
+    ffmpeg -i "${i}" -map_metadata -1 -codec copy -movflags +faststart "${i%.*}.mp4"
     if [[ $? == 0 ]]; then
       rm "${i}"
     fi
