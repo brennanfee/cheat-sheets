@@ -11,13 +11,23 @@ for i in **/*.mkv; do
 done
 ```
 
+## Extract Subtitles
+
+Note: This should be done before stripping of metadata.  This also should generally only work with subtitles of type "mov_text" in the file.
+
+```bash
+ffmpeg -i "input-file.mp4" -map 0:s:0 subs.srt
+```
+
+If there are multiple subtitles, you may need to change the last zero in -map 0:s:0 to select the correct one.
+
 ## Strip Metadata
 
 This one _does not_ check for metadata info first, so use with caution.
 
 ```bash
 for i in **/*.mp4; do
-    ffmpeg -i "${i}" -map_metadata -1 -codec:v copy -codec:a copy -codec:s copy -movflags +faststart "fixed-${i##*/}"
+    ffmpeg -i "${i}" -map_metadata -1 -codec copy -movflags +faststart "fixed-${i##*/}"
     if [[ $? == 0 ]]; then
       rm "${i}"
       mv "fixed-${i##*/}" "${i}"
@@ -31,7 +41,7 @@ installed.
 ```bash
 for i in **/*.mp4; do
   if [[ $(mediainfo "${i}" | grep -i "Movie name\|Title") ]]; then
-    ffmpeg -i "${i}" -map_metadata -1 -codec:v copy -codec:a copy -codec:s copy -movflags +faststart "fixed-${i##*/}"
+    ffmpeg -i "${i}" -map_metadata -1 -codec copy -movflags +faststart "fixed-${i##*/}"
     if [[ $? == 0 ]]; then
       rm "${i}"
       mv "fixed-${i##*/}" "${i}"
@@ -47,7 +57,7 @@ done
 Trim from the front of a file.  The time is in hh:mm:ss format.
 
 ```bash
-ffmpeg -i "input-file.mp4" -codec:v copy -codec:a copy -codec:s copy -ss 1:30 -movflags +faststart "output-file.mp4"
+ffmpeg -i "input-file.mp4" -codec copy -ss 1:30 -movflags +faststart "output-file.mp4"
 ```
 
 ## Concatinate two files without re-encoding
