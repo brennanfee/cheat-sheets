@@ -27,7 +27,7 @@ This one _does not_ check for metadata info first, so use with caution.
 
 ```bash
 for i in **/*.mp4; do
-    ffmpeg -i "${i}" -map_metadata -1 -codec copy -movflags +faststart "fixed-${i##*/}"
+    ffmpeg -i "${i}" -map_metadata -1 -codec:v copy -codec:a copy -movflags +faststart "fixed-${i##*/}"
     if [[ $? == 0 ]]; then
       rm "${i}"
       mv "fixed-${i##*/}" "${i}"
@@ -41,7 +41,7 @@ installed.
 ```bash
 for i in **/*.mp4; do
   if [[ $(mediainfo "${i}" | grep -i "Movie name\|Title") ]]; then
-    ffmpeg -i "${i}" -map_metadata -1 -codec copy -movflags +faststart "fixed-${i##*/}"
+    ffmpeg -i "${i}" -map_metadata -1 -codec:v copy -codec:a copy -movflags +faststart "fixed-${i##*/}"
     if [[ $? == 0 ]]; then
       rm "${i}"
       mv "fixed-${i##*/}" "${i}"
@@ -57,7 +57,7 @@ done
 Trim from the front of a file.  The time is in hh:mm:ss format.
 
 ```bash
-ffmpeg -i "input-file.mp4" -codec copy -ss 1:30 -movflags +faststart "output-file.mp4"
+ffmpeg -i "input-file.mp4" -codec:v copy -codec:a copy -ss 1:30 -movflags +faststart "output-file.mp4"
 ```
 
 ## Concatinate two files without re-encoding
@@ -74,7 +74,7 @@ file '/path/to/file3.mp4'
 The run this command:
 
 ```
-ffmpeg -f concat -safe 0 -i <name>.txt -codec:v copy -codec:a copy -codec:s copy -movflags +faststart "output-file.mp4"
+ffmpeg -f concat -safe 0 -i <name>.txt -codec:v copy -codec:a copy -movflags +faststart "output-file.mp4"
 ```
 
 ## Media Verification
