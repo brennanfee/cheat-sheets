@@ -26,6 +26,9 @@ To extract from a group of files (only works if sub to be extracted is at the sa
 ```bash
 for i in **/*.mkv; do
     ffmpeg -i "${i}" -map 0:s:0 "${i%.*}.en.forced.srt"
+    if [[ $? != 0 ]]; then
+      rm "${i%.*}.en.forced.srt"
+    fi
 done
 ```
 
