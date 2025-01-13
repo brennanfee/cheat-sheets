@@ -21,6 +21,14 @@ ffmpeg -i "input-file.mp4" -map 0:s:0 subs.srt
 
 If there are multiple subtitles, you may need to change the last zero in -map 0:s:0 to select the correct one.
 
+To extract from a group of files (only works if sub to be extracted is at the same position for all files):
+
+```bash
+for i in **/*.mkv; do
+    ffmpeg -i "${i}" -map 0:s:0 "${i%.*}.en.forced.srt"
+done
+```
+
 ## Strip Metadata
 
 This one _does not_ check for metadata info first, so use with caution.
